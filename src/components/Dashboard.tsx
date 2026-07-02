@@ -164,7 +164,8 @@ export default function Dashboard({ onPrint }: DashboardProps) {
   const uniqueMonths: string[] = ["Semua"];
   transactions.forEach(t => {
     const monthNames = [
-      "Jan", "Feb", "Mar","Apr","May","Jun","Jul","Ags","Sep","Okt","Nov","Des"
+      "Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Des"
+    ];
     const dateParts = t.date.split("-");
     if (dateParts.length === 3) {
       const monthIdx = parseInt(dateParts[1]) - 1;
@@ -186,15 +187,15 @@ export default function Dashboard({ onPrint }: DashboardProps) {
 
   // Format charting data (last 3 available months or hardcoded Q1 2024 for visual parity)
   const getChartData = (): CashflowData[] => {
-    const months = ["Jan", "Feb", "Mar","Apr","May","Jun","Jul","Ags","Sep","Okt","Nov","Des"];
+    const months = ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Des"];
     return months.map(m => {
       const monthTx = transactions.filter(t => {
         const dateParts = t.date.split("-");
-        if (dateParts.length === 12) {
+        if (dateParts.length === 3) {
           const mIdx = parseInt(dateParts[1]) - 1;
           const monthNames = [
-            "Jan", "Febr", "Mar", "Apr", "Mei", "Jun", 
-            "Jul", "Ags", "Sep", "Okt", "Nov", "Des"
+            "Jan", "Feb", "Mar", "Apr", "Mei", "Jun", 
+            "Jul", "Aug", "Sep", "Okt", "Nov", "Des"
           ];
           return monthNames[mIdx] === m && dateParts[0] === "2026";
         }
@@ -236,7 +237,7 @@ export default function Dashboard({ onPrint }: DashboardProps) {
   const formatDateString = (dateStr: string) => {
     const monthNamesShort = [
       "Jan", "Feb", "Mar", "Apr", "Mei", "Jun", 
-      "Jul", "Agu", "Sep", "Okt", "Nov", "Des"
+      "Jul", "Aug", "Sep", "Okt", "Nov", "Des"
     ];
     const parts = dateStr.split("-");
     if (parts.length === 3) {
