@@ -1,0 +1,6 @@
+{
+  "name": "RT 009/05 Jatisari Keuangan",
+  "description": "Web dashboard laporan keuangan komunitas RT 009/05 Kelurahan Jatisari dengan sistem autentikasi dan database Firestore.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,49 @@
+{
+  "entities": {
+    "Transaction": {
+      "title": "Transaction",
+      "description": "Format data untuk pencatatan transaksi kas masuk/keluar RT 009/05 Jatisari.",
+      "type": "object",
+      "properties": {
+        "date": {
+          "type": "string",
+          "format": "date",
+          "description": "Tanggal transaksi dalam format YYYY-MM-DD"
+        },
+        "type": {
+          "type": "string",
+          "enum": ["income", "expense"],
+          "description": "Jenis transaksi (pemasukan atau pengeluaran)"
+        },
+        "category": {
+          "type": "string",
+          "description": "Kategori transaksi, seperti Iuran Warga, Kebersihan, Keamanan, Operasional, dll."
+        },
+        "description": {
+          "type": "string",
+          "description": "Deskripsi atau rincian transaksi"
+        },
+        "amount": {
+          "type": "number",
+          "description": "Nominal uang dalam Rupiah"
+        },
+        "createdBy": {
+          "type": "string",
+          "description": "UID dari user pengurus yang menginput transaksi ini"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Waktu pembuatan record transaksi"
+        }
+      },
+      "required": ["date", "type", "category", "description", "amount", "createdBy", "createdAt"]
+    }
+  },
+  "firestore": {
+    "transactions": {
+      "schema": "Transaction",
+      "description": "Koleksi yang menampung semua data transaksi pemasukan dan pengeluaran RT"
+    }
+  }
+}
