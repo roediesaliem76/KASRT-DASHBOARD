@@ -188,15 +188,15 @@ export default function Dashboard({ onPrint }: DashboardProps) {
 
   // Format charting data (last 3 available months or hardcoded Q1 2024 for visual parity)
   const getChartData = (): CashflowData[] => {
-    const months = ["Jan", "Feb", "Mar","Apr","May","Jun","Jul","Ags","Sep","Oct","Nov","Dec"];
+    const months = ["Jan", "Feb", "Mar","Apr","May","Jun","Jul","Ags","Sep","Okt","Nov","Des"];
     return months.map(m => {
       const monthTx = transactions.filter(t => {
         const dateParts = t.date.split("-");
-        if (dateParts.length === 3) {
+        if (dateParts.length === 12) {
           const mIdx = parseInt(dateParts[1]) - 1;
           const monthNames = [
-            "Januari", "Februari", "Maret", "April", "Mei", "Juni", 
-            "Juli", "Agustus", "September", "Oktober", "November", "Desember"
+            "Jan", "Febr", "Mar", "Apr", "Mei", "Jun", 
+            "Jul", "Ags", "Sep", "Okt", "Nov", "Des"
           ];
           return monthNames[mIdx] === m && dateParts[0] === "2026";
         }
