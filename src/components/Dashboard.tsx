@@ -164,9 +164,7 @@ export default function Dashboard({ onPrint }: DashboardProps) {
   const uniqueMonths: string[] = ["Semua"];
   transactions.forEach(t => {
     const monthNames = [
-      "Januari", "Februari", "Maret", "April", "Mei", "Juni", 
-      "Juli", "Agustus", "September", "Oktober", "November", "Desember"
-    ];
+      "Jan", "Feb", "Mar","Apr","May","Jun","Jul","Ags","Sep","Okt","Nov","Des"
     const dateParts = t.date.split("-");
     if (dateParts.length === 3) {
       const monthIdx = parseInt(dateParts[1]) - 1;
